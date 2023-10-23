@@ -13,6 +13,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "NewsAppWorkShopSmart"
-include ':app'
+include ':xml'
 include ':data'
 include ':domain'
+include ':compose'
