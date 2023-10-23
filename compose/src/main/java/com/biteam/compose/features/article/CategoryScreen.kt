@@ -1,6 +1,5 @@
 package com.biteam.compose.features.article
 
-import android.graphics.fonts.FontFamily
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
@@ -51,10 +50,11 @@ fun CategoryScreen() {
 }
 
 
+@RequiresApi(Build.VERSION_CODES.Q)
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun CategoryScreenPreview() {
-
+    CategoryScreen()
 }
 
 
@@ -70,6 +70,7 @@ fun CategoryItemPreview() {
     )
 
 
+    CategoryItem(category)
 }
 
 data class CategoryModel(
@@ -82,7 +83,7 @@ data class CategoryModel(
 fun CategoryItem(model:CategoryModel) {
     Column(horizontalAlignment = Alignment.Start) {
         Text(
-            text = model.title,
+            text = model.source,
             style = TextStyle(
                 fontSize = 14.sp,
                 fontWeight = FontWeight(800),
@@ -110,6 +111,7 @@ fun CategoryItem(model:CategoryModel) {
             )
 
             Spacer(modifier = Modifier.width(8.dp))
+
 
 
         }
