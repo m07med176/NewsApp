@@ -16,7 +16,7 @@ object NewsRetrofitInstance {
     }
 
 
-    val newsApi by  lazy {
+    val newsApi: NewsApi by  lazy {
         retrofitNews.create(NewsApi::class.java)
     }
 
