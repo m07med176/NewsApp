@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">compose</string>
-    <string name="drawer_category">Category</string>
+    <string name="drawer_headline">Headline</string>
     <string name="drawer_search">Search</string>
-    <string name="drawer_article">Article</string>
+    <string name="search">Search</string>
+
+    <string name="there_is_no_data">There is no data</string>
+    <string name="still_fetch_data">Still fetch data ..</string>
+    <string name="search_in_images">Search in images..</string>
+    <string name="start_search">Start Search</string>
 </resources>

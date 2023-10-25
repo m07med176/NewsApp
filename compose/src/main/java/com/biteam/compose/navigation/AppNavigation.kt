@@ -9,7 +9,7 @@ import androidx.navigation.compose.composable
 import com.biteam.compose.composable.SlideInOutAnimation
 import com.biteam.compose.features.article.ArticleData
 import com.biteam.compose.features.article.ArticleScreen
-import com.biteam.compose.features.category.CategoryScreen
+import com.biteam.compose.features.headline.CategoryScreen
 import com.biteam.compose.features.search.SearchScreen
 
 @RequiresApi(Build.VERSION_CODES.Q)
@@ -43,7 +43,7 @@ fun AppNavigation(
                 timestamp = "Feb 26, 2023, 16.32 PM",
                 author = "Ed Zitron"
             )
-            SlideInOutAnimation{ ArticleScreen(navController,data) }
+            SlideInOutAnimation{ ArticleScreen(navController = navController, model =data) }
         }
 
 

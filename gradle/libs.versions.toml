@@ -7,27 +7,35 @@ androidx-test-ext-junit = "1.1.5"
 lifecycle-runtime-ktx = "2.6.2"
 activity-compose = "1.8.0"
 compose-bom = "2023.03.00"
-
 coroutines = "1.7.2"
+
+# ViewModel
+moko_version = "0.16.1"
 viewmodel-ktx = "2.6.1"
 
 # UI Liberary
 material_version = "1.5.0"
+voyager_version = "1.0.0-rc06"
+material_icon_version = "1.4.1"
+lottie_compose_version = "4.0.0"
 
 # Network Liberary
 retrofit = "2.9.0"
 retrofit_interceptor = "4.9.3"
+kotlin_serialization = "1.5.1"
+ktor_version = "2.3.2"
 
 # Dependency Injection
 hilt_android = "2.44"
 dagger_version = "2.44"
 dagger_compose_version = "1.0.0"
 navigation-compose = "2.7.4"
-lottie_compose_version = "4.0.0"
 
+koin_version = "3.5.0"
+koin_log_version = "3.5.1"
 
 # Persistance Data
-room = "2.5.2"
+room_version = "2.5.2"
 
 # Fetch Images
 coil_version = "2.4.0"
@@ -68,8 +76,23 @@ ui_compose_material3 = { group = "androidx.compose.material3", name = "material3
 ui_compose_material = { group = "androidx.compose.material", name = "material" ,version.ref = "material_version"}
 # endregion
 
+
+# region ViewModel
+# MVVM Staff : https://github.com/icerockdev/moko-mvvm
+viewmodel_kmp_moko_core = {module = "dev.icerock.moko:mvvm-core", version.ref = "moko_version"}
+viewmodel_kmp_moko_compose  = {module = "dev.icerock.moko:mvvm-compose", version.ref = "moko_version"}
+
+# endregion ViewModel
+
 # region Navigation Third Party
-ui_compose_navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation-compose"}
+navigation_andorid_compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation-compose"}
+
+# Navigation Staff: https://voyager.adriel.cafe/setup
+navigation_kmp_voyager_koin = { module = "cafe.adriel.voyager:voyager-koin", version.ref = "voyager_version" }
+navigation_kmp_voyager_navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager_version" }
+navigation_kmp_voyager_transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager_version" }
+navigation_kmp_voyager_tabNavigator = { module = "cafe.adriel.voyager:voyager-tab-navigator", version.ref = "voyager_version" }
+navigation_kmp_voyager_bottomSheetNavigator = { module = "cafe.adriel.voyager:voyager-bottom-sheet-navigator", version.ref = "voyager_version" }
 # endregion
 
 # region UI Third Party
@@ -117,18 +140,26 @@ test-core_testing = { group =  "androidx.arch.core", name = "core-testing", vers
 
 # region Dependency Injection
 # Dagger
-hilt_android  ={ group = "com.google.dagger",name = "hilt-android",version.ref = "dagger_version"}
-hilt_compiler = {group = "com.google.dagger", name = "hilt-compiler" ,version.ref = "dagger_version"}
-hilt_work  = { group = "androidx.hilt",name = "hilt-work" ,version.ref = "dagger_compose_version"}
-hilt_navigation = { group = "androidx.hilt",name = "hilt-navigation-compose" ,version.ref = "dagger_compose_version"}
+di_android_hilt_android  ={ group = "com.google.dagger",name = "hilt-android",version.ref = "dagger_version"}
+di_android_hilt_compiler = {group = "com.google.dagger", name = "hilt-compiler" ,version.ref = "dagger_version"}
+di_android_hilt_work  = { group = "androidx.hilt",name = "hilt-work" ,version.ref = "dagger_compose_version"}
+di_android_hilt_navigation = { group = "androidx.hilt",name = "hilt-navigation-compose" ,version.ref = "dagger_compose_version"}
+
+di_kmp_koin_core = { module = "io.insert-koin:koin-core", version.ref = "koin_version"}
+di_kmp_koin_compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin_version"}
+di_kmp_koin_android  = { module = "io.insert-koin:koin-android", version.ref = "koin_version"}
+di_kmp_koin_koinLogger = { module = "io.insert-koin:koin-logger-slf4j", version.ref = "koin_log_version"}
+
 # endregion
 
 # region Fetch Images
-coil = { group = "io.coil-kt",name = "coil",version.ref = "coil_version"}
-coil-compose = { group = "io.coil-kt",name = "coil-compose",version.ref = "coil_version"}
-picasso = { group = "com.squareup.picasso",name = "picasso",version.ref = "picasso_version"}
-glide =  {  group = "com.github.bumptech.glide",name = "glide",version.ref = "glide_version" }
-glide_compiler = {  group = "com.github.bumptech.glide",name = "compiler",version.ref = "glide_version" }
+networkImage_kmp_coil = { group = "io.coil-kt",name = "coil",version.ref = "coil_version"}
+networkImage_kmp_coil-compose = { group = "io.coil-kt",name = "coil-compose",version.ref = "coil_version"}
+
+networkImage_android_glide =  {  group = "com.github.bumptech.glide",name = "glide",version.ref = "glide_version" }
+networkImage_android_glide_compiler = {  group = "com.github.bumptech.glide",name = "compiler",version.ref = "glide_version" }
+
+networkImage_android_picasso = { group = "com.squareup.picasso",name = "picasso",version.ref = "picasso_version"}
 # endregion
 
 # region MultiThreading
@@ -140,20 +171,32 @@ lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtim
 # endregion
 
 # region Network Liberary
-
 # Retrofit
-retrofit2 = { group = "com.squareup.retrofit2",name = "retrofit",version.ref = "retrofit"}
-retrofit2_gson = { group = "com.squareup.retrofit2",name = "converter-gson",version.ref = "retrofit"}
-retrofit2_logging = { group = "com.squareup.okhttp3",name = "logging-interceptor",version.ref = "retrofit_interceptor"}
+netwrok_android_retrofit2 = { group = "com.squareup.retrofit2",name = "retrofit",version.ref = "retrofit"}
+netwrok_android_retrofit2_gson = { group = "com.squareup.retrofit2",name = "converter-gson",version.ref = "retrofit"}
+netwrok_android_retrofit2_logging = { group = "com.squareup.okhttp3",name = "logging-interceptor",version.ref = "retrofit_interceptor"}
 
+# Ktor Staff : https://ktor.io/docs/getting-started-ktor-client.html#create-client
+# 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1'
+netwrok_kmp_ktor_ios = {module = "io.ktor:ktor-client-ios", version.ref = "ktor_version"}
+netwrok_kmp_ktor_java = {module = "io.ktor:ktor-client-java", version.ref = "ktor_version"}
+netwrok_kmp_ktor_core = {module = "io.ktor:ktor-client-core", version.ref = "ktor_version"}
+netwrok_kmp_ktor_json = {module = "io.ktor:ktor-client-json", version.ref = "ktor_version"}
+netwrok_kmp_ktor_android = {module = "io.ktor:ktor-client-android", version.ref = "ktor_version"}
+netwrok_kmp_ktor_engin_okhttp = {module = "io.ktor:ktor-client-okhttp", version.ref = "ktor_version"}
+netwrok_kmp_ktor_client_logging = {module = "io.ktor:ktor-client-logging", version.ref = "ktor_version"}
+netwrok_kmp_ktor_serialization = {module = "io.ktor:ktor-client-serialization", version.ref = "ktor_version"}
+netwrok_kmp_ktor_contentnegotiation = {module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor_version"}
+netwrok_kmp_ktor_serialization_json = {module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor_version"}
+netwrok_kmp_kotlin_serialization = {module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlin-serialization"}
 # endregion
 
 
 # region Persistance
 # Room
-room_runtime = { group = "androidx.room" , name = "room-runtime", version.ref  = "room"}
-room_compiler =  { group = "androidx.room" , name = "room-compiler", version.ref  = "room"}
-room_ktx  = { group = "androidx.room" , name = "room-ktx", version.ref  = "room"}
+persistance_android_room_runtime = { group = "androidx.room" , name = "room-runtime", version.ref  = "room_version"}
+persistance_android_room_compiler =  { group = "androidx.room" , name = "room-compiler", version.ref  = "room_version"}
+persistance_android_room_ktx  = { group = "androidx.room" , name = "room-ktx", version.ref  = "room_version"}
 # endregion
 
 #----------------

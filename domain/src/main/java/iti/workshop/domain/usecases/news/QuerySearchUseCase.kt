@@ -12,12 +12,17 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-class GetNewsUseCase(
+class QuerySearchUseCase(
     private val repository: NewsRepositoryInterface,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) {
-    operator fun invoke(): Flow<NetworkResponseState<List<Article>?>> = flow {
-        val response = repository.getNews()
+    operator fun invoke(search:String): Flow<NetworkResponseState<List<Article>?>> = flow {
+        val response = coroutineScope{
+            val response = async(dispatcher){ repository.queryNews(search) }
+            emit(NetworkResponseState.OnLoading<List<Article>?>())
+            response.await()
+        }
+
         if (response.isSuccessful) {
             emit(NetworkResponseState.OnSuccess(repository.getNews().body()?.articles))
         } else {

@@ -1,7 +1,16 @@
 package com.biteam.compose.system
 
 import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
+import appModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.GlobalContext.startKoin
 
-@HiltAndroidApp
-class AppController:Application()
+class AppController:Application(){
+    override fun onCreate() {
+        super.onCreate()
+        startKoin {
+            androidContext(applicationContext)
+            modules(appModule)
+        }
+    }
+}

@@ -9,8 +9,16 @@ object Constants {
     const val LOGIN_API_URL="/v1/accounts:signInWithPassword"
     const val NEWS_API_KEY = BuildConfig.NEWS_API_KEY
     const val AUTH_API_KEY =BuildConfig.AUTH_API_KEY
+
+
+    object EndPoints{
+        const val TOP_HEADLINES = "top-headlines"
+        const val EVERYTHING = "everything"
+    }
     // Network and Room cash
-    const val MAX_AGE = 7
-    const val  MAX_AGE_MILLI = MAX_AGE * 24 * 60 * 60 * 1000
-    const val WORKER_ID:Long = 2554
+    object Cash{
+        const val MAX_AGE = 7
+        const val  MAX_AGE_MILLI = MAX_AGE * 24 * 60 * 60 * 1000
+        const val WORKER_ID:Long = 2554
+    }
 }

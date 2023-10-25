@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.biteam.compose.composable.ImageLoader
+import org.koin.androidx.compose.koinViewModel
 
 
 @Composable
@@ -41,7 +42,8 @@ fun TopImageViewer(image: String) {
 
     Card(modifier = Modifier
         .fillMaxWidth()
-        .height(270.dp).shadow(5.dp),
+        .height(270.dp)
+        .shadow(5.dp),
         shape = RoundedCornerShape(bottomEnd = 12.dp, bottomStart = 12.dp)
 
     ){
@@ -81,15 +83,9 @@ fun TopImageViewer(image: String) {
 
 }
 
-data class ArticleData(
-    val image:String,
-    val title:String,
-    val author:String,
-    val timestamp:String,
-    val description:String
-    )
+
 @Composable
-fun ArticleScreen(navController: NavController?=null,model:ArticleData) {
+fun ArticleScreen(navController: NavController?=null,viewModel: ArticleViewModel?= koinViewModel(),model:ArticleData) {
     Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
 
         TopImageViewer(image = model.image)

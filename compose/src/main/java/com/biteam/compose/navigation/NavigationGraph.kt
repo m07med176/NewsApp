@@ -13,7 +13,6 @@ sealed class NavigationGraph(val route:String){
 data class DrawerData(@StringRes val title:Int,@DrawableRes val iconId:Int,val route: NavigationGraph)
 
 val navigationDrawer = listOf(
-    DrawerData(title = R.string.drawer_category, iconId = R.drawable.ic_category,route = NavigationGraph.CategoryScreen),
-    DrawerData(title = R.string.drawer_article, iconId = R.drawable.ic_article,route = NavigationGraph.ArticleScreen),
+    DrawerData(title = R.string.drawer_headline, iconId = R.drawable.ic_category,route = NavigationGraph.CategoryScreen),
     DrawerData(title = R.string.drawer_search, iconId = R.drawable.ic_search,route = NavigationGraph.SearchScreen)
 )

@@ -11,7 +11,6 @@ import iti.workshop.data.source.dto.Article
     version = 2,
     exportSchema = false
 )
-
 abstract class RoomDB : RoomDatabase() {
     abstract fun articleDao(): ArticlesDao
 

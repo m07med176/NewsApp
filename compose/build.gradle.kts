@@ -61,11 +61,13 @@ dependencies {
     implementation(libs.ui.compose)
     implementation(libs.ui.compose.lottie)
     implementation(libs.ui.compose.tooling.preview)
-    implementation(libs.ui.compose.navigation)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(platform(libs.ui.compose.bom))
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(platform(libs.ui.compose.bom))
+
+    // Navigation
+    implementation(libs.navigation.andorid.compose)
 
     // Test
     testImplementation(libs.junit)
@@ -90,22 +92,30 @@ dependencies {
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.test.navigation.compose)
 
-    // Dagger Hilt
-    kapt(libs.hilt.compiler)
-    implementation(libs.hilt.work)
-    implementation(libs.hilt.android)
-    implementation(libs.hilt.navigation)
-
     // Retrofit
-    implementation (libs.retrofit2)
-    implementation (libs.retrofit2.gson)
-    implementation (libs.retrofit2.logging)
+    implementation(libs.netwrok.android.retrofit2)
+    implementation(libs.netwrok.android.retrofit2.gson)
+    implementation(libs.netwrok.android.retrofit2.logging)
 
     // Coil
-    implementation (libs.coil)
-    implementation (libs.coil.compose)
+    implementation (libs.networkImage.kmp.coil)
+    implementation (libs.networkImage.kmp.coil.compose)
 
     // Accompanist
     implementation(libs.ui.compose.accompanist.pager)
     implementation(libs.ui.compose.accompanist.insets)
+
+    // Koin
+    implementation(libs.di.kmp.koin.core)
+    implementation(libs.di.kmp.koin.android)
+    implementation(libs.di.kmp.koin.compose)
+    implementation(libs.di.kmp.koin.koinLogger)
+
+    // Room
+    implementation(libs.persistance.android.room.ktx)
+    implementation(libs.persistance.android.room.runtime)
+    kapt(libs.persistance.android.room.compiler)
+
+    implementation(project(path= ":data"))
+    implementation (project(path= ":domain"))
 }
