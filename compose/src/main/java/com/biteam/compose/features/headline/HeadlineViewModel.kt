@@ -14,10 +14,8 @@ import kotlinx.coroutines.launch
 
 class HeadlineViewModel(
     private val getNewsUseCase: GetNewsUseCase,
-
 ): ViewModelMVI<CategoryEventUI>() {
     private val TAG =this::class.java.name
-
 
     private val _stateHeadline: MutableStateFlow<NetworkResponseState<List<Article>?>> = MutableStateFlow(NetworkResponseState.OnLoading())
     val stateHeadline: StateFlow<NetworkResponseState<List<Article>?>> = _stateHeadline.asStateFlow()

@@ -113,8 +113,7 @@ fun SearchField(modifier: Modifier = Modifier,onClickSearch:(String)->Unit) {
 fun SearchScreen(navController: NavController?=null,viewModel: SearchViewModel? = koinViewModel()) {
     val coroutineScope = rememberCoroutineScope()
 
-    val searchState = viewModel?.stateSearch?.collectAsState()
-
+    val searchState = viewModel?.stateSearch?.collectAsState(NetworkResponseState.OnIdle())
 
 
     Column(horizontalAlignment = Alignment.Start){

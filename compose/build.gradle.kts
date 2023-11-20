@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
 //    alias(libs.plugins.dagger.hilt.android)
+
 }
 
 android {
@@ -59,12 +60,15 @@ dependencies {
     implementation(libs.ui.compose.graphics)
     debugImplementation(libs.ui.compose.tooling)
     implementation(libs.ui.compose)
-    implementation(libs.ui.compose.lottie)
     implementation(libs.ui.compose.tooling.preview)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(platform(libs.ui.compose.bom))
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(platform(libs.ui.compose.bom))
+
+    // Third Party UI
+    implementation(libs.ui.compose.lottie)
+
 
     // Navigation
     implementation(libs.navigation.andorid.compose)
@@ -118,4 +122,5 @@ dependencies {
 
     implementation(project(path= ":data"))
     implementation (project(path= ":domain"))
+
 }
